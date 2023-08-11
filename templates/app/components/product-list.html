@@ -1,0 +1,20 @@
+<section class="ftco-section bg-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-lg-10 order-md-last">
+				<div class="row">
+
+					{% include 'app/components/product-card.html' %}
+
+				</div>
+
+                {% include 'app/components/paginator.html' %}
+
+			</div>
+
+			<div class="col-md-4 col-lg-2 sidebar">
+				{% include 'app/components/filter-box.html' %}
+			</div>
+		</div>
+	</div>
+</section>
