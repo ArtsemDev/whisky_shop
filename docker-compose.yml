@@ -15,6 +15,10 @@ services:
       - "8001:8000"
     environment:
       - DATABASE_URL=postgresql://whisky:whisky@database:5432/whisky
+      - SECRET_STR=5fd98d2ec0d2014d33f9ae008ff724da0901bc5172e7cbf1da19d29c264dd472
+      - TOKEN_TYPE=Bearer
+      - EXP_ACCESS_TOKEN=15
+      - EXP_REFRESH_TOKEN=43200
     depends_on:
       - db
 
