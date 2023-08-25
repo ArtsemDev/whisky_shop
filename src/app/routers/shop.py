@@ -6,17 +6,22 @@ from fastapi.responses import HTMLResponse
 from sqlalchemy import select
 from sqlalchemy.sql.functions import count
 
-from src.dependecies import get_categories
+from src.dependecies import get_categories, is_authenticated
 from src.models import ShopCategory, Product, ProductImage
 from src.settings import templating
 
 router = APIRouter(
     prefix='/shop',
-    include_in_schema=False
+    include_in_schema=False,
 )
 
 
-@router.get(path='/', response_class=HTMLResponse, name='shop_index')
+@router.get(
+    path='/',
+    response_class=HTMLResponse,
+    name='shop_index',
+    dependencies=[is_authenticated]
+)
 async def index(
         request: Request,
         page: int = Query(default=1),

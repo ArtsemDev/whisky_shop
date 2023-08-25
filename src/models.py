@@ -60,3 +60,15 @@ class User(Base):
     id = Column(CHAR(26), primary_key=True, default=lambda: new().str)
     email = Column(VARCHAR(128), nullable=False, unique=True)
     password = Column(VARCHAR(256), nullable=False)
+
+    @property
+    def is_authenticated(self):
+        return True
+
+    @property
+    def identity(self):
+        return self.id
+
+    @property
+    def display_name(self):
+        return self.email

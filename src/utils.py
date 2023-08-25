@@ -27,6 +27,6 @@ def verify_token(token: str):
             algorithms=SETTINGS.ALGORITHM
         )
     except JWTError:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='token is invalid or expired')
+        return HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='token is invalid or expired')
     else:
         return payload
